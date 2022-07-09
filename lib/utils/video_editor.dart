@@ -6,20 +6,20 @@ import 'package:flutter_video_editor/models/video_file.dart';
 /// VideoEditor is a class to wrap a VideoFile object and List object.
 class VideoEditor {
   /// Returns the [VideoFile] instance for applying filters.
-  final VideoFile content;
+  final VideoFile videoFile;
 
   /// Returns the [List<VideoEffect>] instance.
   final List<VideoEffect> videoEffects;
 
   /// Creates a VideoEditor object.
-  VideoEditor(this.content, this.videoEffects);
+  VideoEditor(this.videoFile, this.videoEffects);
 
   /// Edit the video based on the [tapiocaBalls](list of processing)
-  Future suckUp(String destFilePath) {
+  Future make(String destFilePath) {
     final Map<String, Map<String, dynamic>> processing = {
       for (var v in videoEffects) v.toTypeName(): v.toMap()
     };
-    return _VideoEditor.writeVideoFile(content.name, destFilePath, processing);
+    return _VideoEditor.writeVideoFile(videoFile.name, destFilePath, processing);
   }
 }
 

@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
                         ];
                         final videoEditor =
                             VideoEditor(VideoFile(_video.path), videoEffects);
-                        videoEditor.suckUp(path).then((_) async {
+                        videoEditor.make(path).then((_) async {
                           debugPrint("finished");
                           debugPrint(path);
                           GallerySaver.saveVideo(path).then((bool? success) {
